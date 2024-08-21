@@ -29,5 +29,6 @@ talk-to-a-pdf = "ttp.talk:main"
 [project.optional-dependencies]
 dev = [
   "pytest",
-  "mkdocs-material==9.4.8"
+  "mkdocs-material==9.4.8",
+  "mkdocstrings"
 ]
