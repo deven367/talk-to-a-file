@@ -5,6 +5,15 @@ from ttf.utils import chat_with
 
 
 def chat_with_pdf(path: str, prompt:str) -> str:
+    """_summary_
+
+    Args:
+        path (str): _description_
+        prompt (str): _description_
+
+    Returns:
+        str: _description_
+    """
 
     reader = PdfReader(path)
     text = "\n".join([page.extract_text() for page in reader.pages])
@@ -18,6 +27,12 @@ def chat_with_pdf(path: str, prompt:str) -> str:
 @click.option("--pdf", "-p", type=click.Path(exists=True), required=True)
 @click.option("--prompt", "-pr", type=str, default="Summarize the following text")
 def main(pdf, prompt):
+    """_summary_
+
+    Args:
+        pdf (_type_): _description_
+        prompt (_type_): _description_
+    """
     chat_with_pdf(pdf, prompt)
 
 if __name__ == "__main__":

@@ -8,8 +8,18 @@ from rich.prompt import Prompt
 
 
 # Function to send a message to the OpenAI chatbot model and return its response
-def send_message(message_log):
+def send_message(message_log: list) -> str:
+    """_summary_
 
+    Args:
+        message_log (list): _description_
+
+    Raises:
+        ValueError: _description_
+
+    Returns:
+        str: _description_
+    """
     try:
         api_key = os.environ["ANTHROPIC_API_KEY"]
     except KeyError:
@@ -27,7 +37,12 @@ def send_message(message_log):
 
 
 
-def chat_with(user_input:str):
+def chat_with(user_input:str)-> None:
+    """_summary_
+
+    Args:
+        user_input (str): _description_
+    """
     # Initialize the conversation history with a message from the chatbot
     # message_log = [{"role": "system", "content": "You are a helpful assistant."}]
     message_log = []
@@ -82,6 +97,16 @@ def chat_with(user_input:str):
 
 
 def summarize_pdf_old(client: anthropic.Client, path: str, prompt:str) -> str:
+    """_summary_
+
+    Args:
+        client (anthropic.Client): _description_
+        path (str): _description_
+        prompt (str): _description_
+
+    Returns:
+        str: _description_
+    """
     reader = PdfReader(path)
     text = "\n".join([page.extract_text() for page in reader.pages])
 
