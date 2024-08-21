@@ -30,5 +30,5 @@ talk-to-a-pdf = "ttp.talk:main"
 dev = [
   "pytest",
   "mkdocs-material==9.4.8",
-  "mkdocstrings"
+  "mkdocstrings[python]"
 ]
