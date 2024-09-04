@@ -4,7 +4,7 @@ from PyPDF2 import PdfReader
 from ttf.utils import chat_with
 
 
-def chat_with_pdf(path: str, prompt:str) -> str:
+def chat_with_file(path: str, prompt:str) -> str:
     """_summary_
 
     Args:
@@ -24,7 +24,7 @@ def chat_with_pdf(path: str, prompt:str) -> str:
 
 
 @click.command()
-@click.option("--pdf", "-p", type=click.Path(exists=True), required=True)
+@click.option("--file", "-f", type=click.Path(exists=True), required=True)
 @click.option("--prompt", "-pr", type=str, default="Summarize the following text")
 def main(pdf, prompt):
     """_summary_
@@ -33,7 +33,7 @@ def main(pdf, prompt):
         pdf (_type_): _description_
         prompt (_type_): _description_
     """
-    chat_with_pdf(pdf, prompt)
+    chat_with_file(pdf, prompt)
 
 if __name__ == "__main__":
     main()
