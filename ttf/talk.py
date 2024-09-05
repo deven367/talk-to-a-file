@@ -33,14 +33,8 @@ def chat_with_file(path: str, prompt:str) -> str:
 @click.command()
 @click.option("--file", "-f", type=click.Path(exists=True), required=True)
 @click.option("--prompt", "-pr", type=str, default="Summarize the following text")
-def main(pdf, prompt):
-    """_summary_
-
-    Args:
-        pdf (_type_): _description_
-        prompt (_type_): _description_
-    """
-    chat_with_file(pdf, prompt)
+def main(file, prompt):
+    chat_with_file(file, prompt)
 
 if __name__ == "__main__":
     main()
