@@ -15,8 +15,15 @@ def chat_with_file(path: str, prompt:str) -> str:
         str: _description_
     """
 
-    reader = PdfReader(path)
-    text = "\n".join([page.extract_text() for page in reader.pages])
+    if path.endswith('.pdf'):
+        reader = PdfReader(path)
+        text = "\n".join([page.extract_text() for page in reader.pages])
+
+    elif path.endswith('.txt'):
+        text = open(path, 'r').read()
+    else:
+        extension = path.split('.')[-1]
+        raise ValueError(f'Files ending in "{extension}" are not yet supported')
 
     user_input = prompt + ":\n\n" + text
     chat_with(user_input)
