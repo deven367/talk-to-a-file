@@ -24,11 +24,11 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project.scripts]
-talk-to-a-pdf = "ttp.talk:main"
+talk-to-a-file = "ttf.talk:main"
 
 [project.optional-dependencies]
 dev = [
   "pytest",
-  "mkdocs-material==9.4.8",
+  "mkdocs-material==9.5.34",
   "mkdocstrings[python]"
 ]
